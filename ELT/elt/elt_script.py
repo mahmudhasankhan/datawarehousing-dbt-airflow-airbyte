@@ -19,3 +19,10 @@ def wait_for_postgres(host, max_retries=5, delay_seconds=5):
                 return True
         except subprocess.CalledProcessError as e:
             print(f"Error connecting to Postgres: {e}")
+            retries += 1
+            print(
+                f"Retrying in {delay_seconds} seconds... (Attempt {retries}/{max_retries})"
+            )
+            time.sleep(delay_seconds)
+    print("Max retries reached. Exiting")
+    return False
