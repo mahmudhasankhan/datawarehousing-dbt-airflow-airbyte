@@ -52,7 +52,7 @@ def main():
     dump_command = [
         "pg_dump",
         "-h", source_config['host'],
-        "-u", source_config['user'],
+        "-U", source_config['user'],
         "-d", source_config['dbname'],
         "-f", "data_dump.sql",
         "-w"
@@ -65,7 +65,7 @@ def main():
     load_command = [
         "psql",
         "-h", destination_config['host'],
-        "-u", destination_config['user'],
+        "-U", destination_config['user'],
         "-d", destination_config['dbname'],
         "-a", "-f", "data_dump.sql",
         "-w"
