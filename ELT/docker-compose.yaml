@@ -30,7 +30,7 @@ services:
     build:
       context: ./elt
       dockerfile: Dockerfile
-      command: ["python", "elt_script.py"]
+    command: ["python", "elt_script.py"]
     networks:
       - elt_network
     depends_on:
