@@ -4,7 +4,7 @@ import time
 
 def main():
 
-    def wait_for_postgres(host, max_retries=5, delay_seconds=5):
+    def wait_for_postgres(host, max_retries=5, delay_seconds=10):
         """Wait for PostgreSQL to become available."""
         retries = 0
         while retries < max_retries:
