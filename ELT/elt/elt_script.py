@@ -68,7 +68,6 @@ def main():
         "-U", destination_config['user'],
         "-d", destination_config['dbname'],
         "-a", "-f", "data_dump.sql",
-        "-w"
     ]
 
     subprocess_env = dict(PGPASSWORD=destination_config["password"])
