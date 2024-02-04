@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from docker.types import Mount
-from airflow.operators.python_operators import PythonOperator
+from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash import BashOperator
 from airflow.operators.docker import DockerOperator
 import subprocess
