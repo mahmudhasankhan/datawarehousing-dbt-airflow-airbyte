@@ -75,7 +75,7 @@ services:
     networks:
         - elt_network
     environment:
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgres+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     command: >
       bash -c "airflow db init &&
                airflow users create --username airflow --password password --firstname John --lastname Doe --role Admin --email admin@example.com"
@@ -86,7 +86,8 @@ services:
       dockerfile: Dockerfile
     user: root
     depends_on:
-      - postgres
+      init_airflow:
+        condition: service_completed_successfully
     networks:
         - elt_network
     extra_hosts:
@@ -101,7 +102,7 @@ services:
       LOAD_EX: n
       EXECUTOR: Local
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-      AIRFLOW_CONN_DESTINATION_POSTGRES: postgres://postgres:secret@destination_postgres:5434/destination_db
+      AIRFLOW_CONN_DESTINATION_POSTGRES: postgresql://postgres:secret@destination_postgres:5434/destination_db
       AIRFLOW__CORE__FERNET_KEY: tPd7KG1RmRrwVmx85i99C8ERLUzxCs-HVT7U2_R-G5M=
       AIRFLOW__WEBSERVER__DEFAULT_USER_USERNAME: airflow
       AIRFLOW__WEBSERVER__DEFAULT_USER_PASSWORD: password
@@ -118,7 +119,8 @@ services:
       dockerfile: Dockerfile
     user: root
     depends_on:
-      - postgres
+      init_airflow:
+        condition: service_completed_successfully
     networks:
         - elt_network
     extra_hosts:
@@ -133,7 +135,7 @@ services:
       LOAD_EX: n
       EXECUTOR: Local
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-      AIRFLOW_CONN_DESTINATION_POSTGRES: postgres://postgres:secret@destination_postgres:5434/destination_db
+      AIRFLOW_CONN_DESTINATION_POSTGRES: postgresql://postgres:secret@destination_postgres:5434/destination_db
       AIRFLOW__CORE__FERNET_KEY: tPd7KG1RmRrwVmx85i99C8ERLUzxCs-HVT7U2_R-G5M=
       AIRFLOW__WEBSERVER__DEFAULT_USER_USERNAME: airflow
       AIRFLOW__WEBSERVER__DEFAULT_USER_PASSWORD: password
