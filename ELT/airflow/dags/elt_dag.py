@@ -56,7 +56,7 @@ dbt_task = DockerOperator(
     docker_url="unix://var/run/docker.sock",
     network_mode="bridge",
     mounts=[
-        Mount(source="D:/data_eng/ELT/custom_postgres",
+        Mount(source="D:/data-engineering/datawarehousing-dbt-airflow-airbyte/ELT/custom_postgres",
               target="/opt/dbt", type="bind"),
         Mount(source="C:/Users/IT Admin/.dbt",
               target="/root", type="bind")
