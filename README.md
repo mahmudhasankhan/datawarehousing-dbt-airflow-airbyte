@@ -1,1 +1,6 @@
-# Data Engineering Course by FreeCodeCamp
+# Data Warehousing
+
+# Tools:
+- Docker
+- Airflow
+- Airbyte
