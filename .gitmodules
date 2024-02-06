@@ -1,0 +1,3 @@
+[submodule "ELT/airbyte"]
+	path = ELT/airbyte
+	url = https://github.com/airbytehq/airbyte
