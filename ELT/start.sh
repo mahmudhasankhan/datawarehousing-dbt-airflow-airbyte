@@ -1,8 +1,13 @@
+
+echo "Current Directory: $PWD"
+
 docker compose up -d
 
 sleep 5
 
 cd airbyte
+
+echo "Current Directory: $PWD"
 
 # Check if docker-compose.yml exists in the current directory
 if [ -f "docker-compose.yaml" ]; then

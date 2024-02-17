@@ -21,7 +21,7 @@ dag = DAG(
     'elt_and_dbt',
     default_args=default_args,
     description='An ELT workflow with dbt',
-    start_date=datetime(2024, 2, 4),
+    start_date=datetime(2024, 2, 18),
     catchup=False
 )
 
